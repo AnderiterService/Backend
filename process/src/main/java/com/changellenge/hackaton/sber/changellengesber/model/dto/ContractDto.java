@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BkiDto {
-    ContractDto contractDto;
-    String ogrn;
+public class ContractDto {
+    MounthPaymentDto mountPayment;
+    String uid;
 }

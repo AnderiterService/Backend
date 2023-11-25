@@ -4,10 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BkiDto {
-    ContractDto contractDto;
-    String ogrn;
+public class PersonalDocumentDto {
+    String seria;
+    String number;
+    Date dateOfIssue;
+    Short citizenship;
+    Short codeDul;
 }

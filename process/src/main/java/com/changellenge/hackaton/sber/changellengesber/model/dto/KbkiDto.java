@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BkiDto {
-    ContractDto contractDto;
-    String ogrn;
+public class KbkiDto {
+    CommitmentDto commitment;
+    Long ogrn;
+    String asOf;
 }

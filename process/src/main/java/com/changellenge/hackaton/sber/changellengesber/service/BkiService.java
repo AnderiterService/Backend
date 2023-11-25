@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 public interface BkiService {
-    BkiDto getBookById(Long id) throws ChangeSetPersister.NotFoundException, AuthException;
+    BkiDto getBkiById(Long id) throws ChangeSetPersister.NotFoundException, AuthException;
 }

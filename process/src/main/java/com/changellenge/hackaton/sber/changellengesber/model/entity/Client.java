@@ -89,7 +89,4 @@ public class Client  extends BaseEntity{
     private Boolean hasBankAccount;
 
 
-//    @OneToMany(mappedBy = "client", orphanRemoval = true)
-//    private Set<Docs> docs = new LinkedHashSet<>();
-
 }

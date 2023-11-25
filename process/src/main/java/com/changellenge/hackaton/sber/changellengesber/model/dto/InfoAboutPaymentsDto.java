@@ -4,10 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Шаблон Dto
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BkiDto {
-    ContractDto contractDto;
+public class InfoAboutPaymentsDto {
+    TitlePartDto titlePartDto;
+    KbkiDto kdki;
+    String version;
+    String requestId;
+    String responseId;
     String ogrn;
+    int requestType;
 }
