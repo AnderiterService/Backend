@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.changellenge.hackaton.sber</groupId>
-	<artifactId>changellenge-sber</artifactId>
+	<artifactId>changellenge-sber-process</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>changellenge-sber</name>
-	<description>changellenge-sber</description>
+	<name>changellenge-sber-process</name>
+	<description>changellenge-sber-process</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
