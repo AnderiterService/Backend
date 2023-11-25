@@ -16,6 +16,4 @@ public class ClientRequest {
     private Role role;
 
 
-
-
 }

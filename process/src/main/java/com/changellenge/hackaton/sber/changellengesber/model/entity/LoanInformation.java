@@ -57,4 +57,8 @@ public class LoanInformation {
     @JoinColumn(name = "client_id")
     private Client client;
 
+    @ManyToOne
+    @JoinColumn(name = "request_uid")
+    private Request request;
+
 }
