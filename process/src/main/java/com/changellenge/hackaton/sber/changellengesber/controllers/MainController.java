@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RequestMapping("/processor")
 public class MainController {
-//    @Autowired
-//    private ProcessorClient processorClient;
+
 
     @GetMapping("/forms")
     public void getAllForms() {

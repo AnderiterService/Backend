@@ -1,24 +1,25 @@
-version: '2.1'
+version: '3.3'
 
 services:
-  composit:
-    build: composit
-    mem_limit: 512m
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-  network:
-    build: network
-    mem_limit: 512m
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-  process:
-    build: process
-    mem_limit: 512m
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
+#  composit:
+#    build: composit
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#  network:
+#    build: network
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#  process:
+#    build: process
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
   postgres:
-    image: 'postgres:15-alpine'
-    ports:
-      - '5432'
+    image: 'postgres:13.1-alpine'
+    container_name: postgres
     environment:
-      POSTGRES_DB: postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db
+      - PGDATA=/var/lib/postgresql/data/db
+    ports:
+      - 5433:5432
