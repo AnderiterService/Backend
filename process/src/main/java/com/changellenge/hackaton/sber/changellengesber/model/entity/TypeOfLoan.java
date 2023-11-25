@@ -1,15 +1,16 @@
 package com.changellenge.hackaton.sber.changellengesber.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Entity
 @Table(name = "type_of_loan")
-@Data
-public class TypeOfLoan {
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Getter
+@Setter
+public class TypeOfLoan  extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

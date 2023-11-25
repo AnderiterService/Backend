@@ -2,19 +2,19 @@ package com.changellenge.hackaton.sber.changellengesber.model.entity;
 
 import com.changellenge.hackaton.sber.changellengesber.model.entity.Status;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
 
-@Entity
 @Table(name = "requests")
-@Data
-public class Request {
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Getter
+@Setter
+public class Request  extends BaseEntity{
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "uid")
+
+            @Column(name = "uid")
         private Long uid;
 
         @Column(name = "start_timestamp")

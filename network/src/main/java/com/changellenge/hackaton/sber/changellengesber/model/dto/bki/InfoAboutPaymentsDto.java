@@ -7,7 +7,11 @@ import lombok.NoArgsConstructor;
 /**
  * Шаблон Dto
  */
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class InfoAboutPaymentsDto {

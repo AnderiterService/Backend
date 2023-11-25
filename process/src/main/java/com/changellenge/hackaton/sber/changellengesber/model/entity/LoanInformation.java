@@ -1,19 +1,23 @@
 package com.changellenge.hackaton.sber.changellengesber.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+
+
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Getter
+@Setter
 @Table(name = "loan_information")
-public class LoanInformation {
+public class LoanInformation  extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
 

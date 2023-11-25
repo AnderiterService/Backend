@@ -21,11 +21,12 @@ import java.util.Set;
 
 @Entity
 @Table(name = "clients")
-@Data
 @NoArgsConstructor
-public class Client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@AllArgsConstructor
+@Getter
+@Setter
+public class Client  extends BaseEntity{
+
     private Long id;
 
     @NotNull

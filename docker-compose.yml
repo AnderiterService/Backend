@@ -1,18 +1,18 @@
 version: '2.1'
 
 services:
-  compose:
-    build: compose-service
+  composit:
+    build: composit
     mem_limit: 512m
     environment:
       - SPRING_PROFILES_ACTIVE=docker
   network:
-    build: network-service
+    build: network
     mem_limit: 512m
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-  processor_service:
-    build: processor-service
+  process:
+    build: process
     mem_limit: 512m
     environment:
       - SPRING_PROFILES_ACTIVE=docker

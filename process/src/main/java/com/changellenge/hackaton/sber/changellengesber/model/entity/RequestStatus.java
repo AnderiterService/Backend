@@ -1,15 +1,17 @@
 package com.changellenge.hackaton.sber.changellengesber.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Entity
 @Table(name = "request_status")
-@Data
-public class RequestStatus {
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Getter
+@Setter
+public class RequestStatus  extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
     @ManyToOne

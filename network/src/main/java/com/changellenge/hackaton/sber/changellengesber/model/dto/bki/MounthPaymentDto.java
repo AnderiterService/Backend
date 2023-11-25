@@ -6,7 +6,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class MounthPaymentDto {
