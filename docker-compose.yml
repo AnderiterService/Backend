@@ -1,0 +1,22 @@
+version: '2.1'
+
+services:
+  compose:
+    build: compose-service
+    mem_limit: 512m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+  network:
+    build: network-service
+    mem_limit: 512m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+  processor_service:
+    build: processor-service
+    mem_limit: 512m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+  postgres:
+    image: 'postgres:15-alpine'
+    ports:
+      - '5432'
