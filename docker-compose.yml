@@ -20,3 +20,5 @@ services:
     image: 'postgres:15-alpine'
     ports:
       - '5432'
+    environment:
+      POSTGRES_DB: postgres
