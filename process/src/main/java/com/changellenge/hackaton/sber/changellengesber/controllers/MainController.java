@@ -1,6 +1,5 @@
 package com.changellenge.hackaton.sber.changellengesber.controllers;
 
-//import com.changellenge.hackaton.sber.config.ProcessorClient;
 import com.changellenge.hackaton.sber.changellengesber.model.dto.RequestDto;
 import com.changellenge.hackaton.sber.changellengesber.service.ClientService;
 import com.changellenge.hackaton.sber.changellengesber.service.RequestService;

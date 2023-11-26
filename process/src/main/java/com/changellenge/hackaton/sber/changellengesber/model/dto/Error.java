@@ -6,8 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.validation.annotation.Validated;
-//import jakarta.validation.Valid;
-//import jakarta.validation.constraints.*;
 
 /**
  * Error

@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 /**
  * Шаблон Dto
  */
-@NoArgsConstructor
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

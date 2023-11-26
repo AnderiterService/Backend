@@ -25,7 +25,6 @@ import com.changellenge.hackaton.sber.changellengesber.model.exceptions.*;
 
 import java.util.NoSuchElementException;
 
-//import jakarta.validation.ConstraintViolationException;
 
 
 @RestControllerAdvice
