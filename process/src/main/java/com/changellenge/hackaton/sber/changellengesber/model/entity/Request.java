@@ -28,7 +28,7 @@ public class Request  extends BaseEntity{
         private Status statusId;
 
         @Column(name = "pdn")
-        private Short pdn;
+        private Double pdn;
 
         @Column(name = "credit_history_analysis")
         private String creditHistoryAnalysis;
