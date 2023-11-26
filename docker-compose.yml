@@ -1,25 +1,53 @@
 version: '3.3'
 
 services:
-#  composit:
-#    build: composit
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
-#  network:
-#    build: network
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
-#  process:
-#    build: process
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
-  postgres:
-    image: 'postgres:13.1-alpine'
-    container_name: postgres
+  composit:
+    build: composit
+    restart: always
+    networks:
+      - backend-network
+
+  network:
+    build: network
+    restart: always
+    networks:
+      - backend-network
+
+  process:
+    build: process
+    restart: always
+    depends_on:
+      - database
+    networks:
+      - backend-network
+      - database-network
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=db
-      - PGDATA=/var/lib/postgresql/data/db
-    ports:
-      - 5433:5432
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+
+
+  # Инстанс базы данных
+  database:
+    image: postgres:15.3-alpine
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    networks:
+      - database-network
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+networks:
+  backend-network:
+    driver: bridge
+  database-network:
+    driver: bridge
+
+volumes:
+  postgres-db:
+    driver: local
