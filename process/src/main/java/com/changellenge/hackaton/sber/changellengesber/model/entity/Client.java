@@ -21,11 +21,14 @@ import java.util.Set;
 
 @Entity
 @Table(name = "clients")
-@Data
 @NoArgsConstructor
-public class Client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+
+public class Client  extends BaseEntity{
+
     private Long id;
 
     @NotNull
@@ -87,8 +90,5 @@ public class Client {
     @Column(name = "has_bank_account")
     private Boolean hasBankAccount;
 
-
-//    @OneToMany(mappedBy = "client", orphanRemoval = true)
-//    private Set<Docs> docs = new LinkedHashSet<>();
 
 }

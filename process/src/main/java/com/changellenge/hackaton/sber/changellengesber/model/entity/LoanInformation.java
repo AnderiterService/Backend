@@ -1,19 +1,24 @@
 package com.changellenge.hackaton.sber.changellengesber.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-import java.math.BigDecimal;
+
+
+
 import java.sql.Timestamp;
 
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Getter
+@Setter
+@ToString
 @Table(name = "loan_information")
-public class LoanInformation {
+public class LoanInformation  extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
 
@@ -38,22 +43,38 @@ public class LoanInformation {
     private Timestamp finalDate;
 
     @Column(name = "sum")
-    private BigDecimal sum;
+    private Double sum;
 
     @Column(name = "interest_rate")
-    private BigDecimal interestRate;
+    private Double interestRate;
 
     @Column(name = "balance_due")
-    private BigDecimal balanceDue;
+    private Double balanceDue;
 
     @ManyToOne
     @JoinColumn(name = "delay")
     private Delay delay;
 
     @Column(name = "overdue_amount")
-    private BigDecimal overdueAmount;
+    private Double overdueAmount;
 
-    @OneToOne(orphanRemoval = true)
+    @Column(name = "monthly_pay")
+    private Double monthlyPay;
+//
+//    @OneToOne(orphanRemoval = true)
+//    @JoinColumn(name = "client_id")
+//    private Client client;
+
+
+//    @ManyToOne
+//    @JoinColumn(name = "request_uid")
+//    private Request request;
+
+    @ManyToOne
+    @JoinColumn(name = "bki_id")
+    private Bki bki;
+
+    @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
 

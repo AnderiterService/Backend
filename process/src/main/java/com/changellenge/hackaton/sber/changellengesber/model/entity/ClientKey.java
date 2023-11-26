@@ -7,10 +7,11 @@ import java.io.Serializable;
 
 
 @Embeddable
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class ClientKey implements Serializable {
+@AllArgsConstructor
+@Getter
+@Setter
+public class ClientKey  implements Serializable {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;

@@ -1,14 +1,18 @@
 package com.changellenge.hackaton.sber.changellengesber.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Table(name = "bki")
-@Data
-public class Bki {
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@ToString
+@Setter
+public class Bki extends BaseEntity{
 
-    @Id
+
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "client_id")
     private Client client;

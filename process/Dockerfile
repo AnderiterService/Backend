@@ -1,13 +1,12 @@
-FROM eclipse-temurin:17.0.5_8-jre-focal as builder
-WORKDIR extracted
-ADD ./target/*.jar
-RUN java -Djarmode=layertools -jar *.jar extract
 
-FROM eclipse-temurin:17.0.5_8-jre-focal
-WORKDIR application
-COPY --from=builder extracted/dependencies/ ./
-COPY --from=builder extracted/spring-boot-loader/ ./
-COPY --from=builder extracted/snapshot-dependencies/ ./
-COPY --from=builder extracted/application/ ./
+FROM  openjdk:11-jre-slim
+
+
+WORKDIR /app
+
+COPY --from=builder /app/target/changellenge-sber-process-0.0.1-SNAPSHOT.jar process.jar
+
+# Expose the port your Spring Boot application uses (if it's different from the default port)
 EXPOSE 8080
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+
+CMD ["java", "-jar", "process.jar"]

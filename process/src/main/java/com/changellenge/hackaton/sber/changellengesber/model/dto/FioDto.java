@@ -4,10 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Шаблон Dto
- */
 @Data
 @NoArgsConstructor
-public class DtoTemplate {
+@AllArgsConstructor
+public class FioDto {
+    String surname;
+    String name;
+    String fatherName;
 }

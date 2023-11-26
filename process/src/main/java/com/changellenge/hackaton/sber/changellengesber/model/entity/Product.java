@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@Table(name = "product_metadata")
+@Table(name = "product_metadata" )
 public class Product extends BaseEntity {
 
     @Column(name = "name", nullable = false)

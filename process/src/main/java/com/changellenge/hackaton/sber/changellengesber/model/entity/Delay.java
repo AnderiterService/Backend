@@ -2,14 +2,19 @@ package com.changellenge.hackaton.sber.changellengesber.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.*;
 
-@Entity
+
 @Table(name = "delays")
-@Data
-public class Delay {
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Getter
+@ToString
+@Setter
+public class Delay  extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "id")
     private Long id;
 
