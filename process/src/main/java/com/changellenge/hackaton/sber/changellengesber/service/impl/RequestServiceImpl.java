@@ -7,6 +7,7 @@ import com.changellenge.hackaton.sber.changellengesber.repo.RequestRepository;
 import com.changellenge.hackaton.sber.changellengesber.repo.StatusRepository;
 import com.changellenge.hackaton.sber.changellengesber.service.RequestService;
 import jakarta.security.auth.message.AuthException;
+import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -40,6 +41,8 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
+    @Transactional
+
     public void sendToReload(Long id) {
         Request request = requestRepository.findById(id).orElseThrow();
         Status status = statusRepository.findById(3L).orElseThrow(); // дозапрос

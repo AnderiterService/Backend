@@ -1,23 +1,19 @@
 package com.changellenge.hackaton.sber.changellengesber.model.entity;
 
+import org.hibernate.annotations.Type;
 
 import jakarta.persistence.*;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
-
-
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
+//import org.hibernate.mapping.TypeDef;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.time.Period;
+import java.util.Date;
+
 
 @Entity
 @Table(name = "clients")
@@ -26,8 +22,11 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-
-public class Client  extends BaseEntity{
+//@TypeDef(name = "interval",
+//        typeClass = PostgreSQLIntervalType.class,
+//        defaultForType = Period.class
+//)
+public class Client extends BaseEntity {
 
     private Long id;
 
@@ -39,12 +38,13 @@ public class Client  extends BaseEntity{
     @Column(name = "surname")
     private String surname;
 
+    @NotNull
     @Column(name = "father_name")
     private String fatherName;
 
     @NotNull
     @Column(name = "date_birth")
-    private String dateBirth;
+    private Date dateBirth;
 
     @NotNull
     @Column(name = "passport")
@@ -58,9 +58,6 @@ public class Client  extends BaseEntity{
     @Column(name = "location_life")
     private String locationLife;
 
-    @NotNull
-    @Column(name = "family_status")
-    private Byte familyStatus;
 
     @NotNull
     @Column(name = "children")
@@ -69,9 +66,11 @@ public class Client  extends BaseEntity{
     @Column(name = "workplace")
     private String workplace;
 
-    @NotNull
-    @Column(name = "work_experience")
-    private Byte workExperience;
+    @Column(
+            name = "work_experience")
+//    @Type(type = "interval")
+    private Date workExperience;
+
 
     @Column(name = "work_position")
     private String workPosition;
@@ -90,5 +89,8 @@ public class Client  extends BaseEntity{
     @Column(name = "has_bank_account")
     private Boolean hasBankAccount;
 
+    @ManyToOne
+    @JoinColumn(name = "family_status_id")
+    FamilyStatus familyStatus;
 
 }

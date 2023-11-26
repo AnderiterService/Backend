@@ -1,30 +1,35 @@
+INSERT INTO family_status (status)
+VALUES ('Холост'),
+       ('Женат/Замужем'),
+       ('В разводе');
+
 INSERT INTO clients (name, surname, father_name, date_birth, passport,
-                     location_reg, location_life, family_status, children,
+                     location_reg, location_life, family_status_id, children,
                      workplace, work_experience, work_position, monthly_income,
                      additional_income, additional_income_source_name, has_bank_account)
-VALUES ('John', 'Doe', 'Mike', '1990-05-15', 'AB123456', 'City1', 'City2', 1, TRUE, 'Company A', 5, 'Manager', 50000,
+VALUES ('John', 'Doe', 'Mike', '1990-05-15', 'AB123456', 'City1', 'City2', 1, TRUE, 'Company A', '2005-01-01', 'Manager', 50000,
         10000, 'Part-time job', TRUE),
-       ('Alice', 'Smith', 'David', '1985-08-22', 'CD987654', 'Town1', 'Town3', 2, FALSE, 'Company B', 3, 'Engineer',
+       ('Alice', 'Smith', 'David', '1985-08-22', 'CD987654', 'Town1', 'Town3', 2, FALSE, 'Company B', '2008-01-01', 'Engineer',
         60000, NULL, NULL, FALSE),
-       ('Bob', 'Johnson', 'Sam', '1993-04-10', 'EF543219', 'Village2', 'City5', 3, TRUE, NULL, 2, 'Assistant', 45000,
+       ('Bob', 'Johnson', 'Sam', '1993-04-10', 'EF543219', 'Village2', 'City5', 3, TRUE, NULL,'2015-01-01', 'Assistant', 45000,
         8000, 'Freelance work', TRUE),
-       ('Eva', 'Williams', 'Paul', '1998-11-28', 'GH123987', 'City3', 'City4', 1, TRUE, 'Company C', 4, 'Analyst',
+       ('Eva', 'Williams', 'Paul', '1998-11-28', 'GH123987', 'City3', 'City4', 1, TRUE, 'Company C', '2000-01-01', 'Analyst',
         55000, NULL, NULL, TRUE);
 
-INSERT INTO clients (children, family_status, has_bank_account, work_experience, additional_income, monthly_income,
+INSERT INTO clients (children, family_status_id, has_bank_account, work_experience, additional_income, monthly_income,
                      additional_income_source_name, date_birth, father_name, location_life, location_reg, name,
                      passport, surname, work_position, workplace)
-VALUES (TRUE, 1, TRUE, 5, 2000, 50000, 'Source1', '1990-01-01', 'John', 'Location1', 'Location2', 'Client 1',
+VALUES (TRUE, 1, TRUE, '2013-01-01', 2000, 50000, 'Source1', '1990-01-01', 'John', 'Location1', 'Location2', 'Client 1',
         'Passport1', 'Surname1', 'Position1', 'Workplace1'),
-       (FALSE, 2, FALSE, 3, NULL, 60000, NULL, '1988-02-02', 'Alice', 'Location3', 'Location4', 'Client 2', 'Passport2',
+       (FALSE, 2, FALSE, '2019-01-01', NULL, 60000, NULL, '1988-02-02', 'Alice', 'Location3', 'Location4', 'Client 2', 'Passport2',
         'Surname2', 'Position2', 'Workplace2'),
-       (TRUE, 3, TRUE, 4, 8000, 45000, 'Source3', '1995-03-03', 'Bob', 'Location5', 'Location6', 'Client 3',
+       (TRUE, 3, TRUE, '2011-01-01', 8000, 45000, 'Source3', '1995-03-03', 'Bob', 'Location5', 'Location6', 'Client 3',
         'Passport3', 'Surname3', 'Position3', NULL),
-       (TRUE, 1, TRUE, 5, 2000, 50000, 'Source1', '1990-01-01', 'John', 'Location1', 'Location2', 'Client 4',
+       (TRUE, 1, TRUE, '2013-01-01', 2000, 50000, 'Source1', '1990-01-01', 'John', 'Location1', 'Location2', 'Client 4',
         'Passport4', 'Surname4', 'Position4', 'Workplace4'),
-       (FALSE, 2, FALSE, 3, NULL, 60000, NULL, '1988-02-02', 'Alice', 'Location3', 'Location4', 'Client 5', 'Passport5',
+       (FALSE, 2, FALSE, '2012-02-01', NULL, 60000, NULL, '1988-02-02', 'Alice', 'Location3', 'Location4', 'Client 5', 'Passport5',
         'Surname5', 'Position5', 'Workplace5'),
-       (TRUE, 3, TRUE, 4, 8000, 45000, 'Source3', '1995-03-03', 'Bob', 'Location5', 'Location6', 'Client 6',
+       (TRUE, 3, TRUE, '2013-01-01', 8000, 45000, 'Source3', '1995-03-03', 'Bob', 'Location5', 'Location6', 'Client 6',
         'Passport6', 'Surname6', 'Position6', NULL);
 
 INSERT INTO docs (file, client_id, doc_name)
@@ -53,6 +58,8 @@ VALUES ('Заемщик'),
 INSERT INTO type_of_loan (type)
 VALUES ('Кредит'),
        ('Залог');
+
+
 
 INSERT INTO status_of_obligation (status) VALUES ('Текущий'), ('Завершенный');
 
