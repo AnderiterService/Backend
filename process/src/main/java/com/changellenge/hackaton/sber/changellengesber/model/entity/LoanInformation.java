@@ -56,13 +56,22 @@ public class LoanInformation  extends BaseEntity {
 
     @Column(name = "overdue_amount")
     private BigDecimal overdueAmount;
+//
+//    @OneToOne(orphanRemoval = true)
+//    @JoinColumn(name = "client_id")
+//    private Client client;
 
-    @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "client_id")
-    private Client client;
+
+//    @ManyToOne
+//    @JoinColumn(name = "request_uid")
+//    private Request request;
 
     @ManyToOne
-    @JoinColumn(name = "request_uid")
-    private Request request;
+    @JoinColumn(name = "bki_id")
+    private Bki bki;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
 }

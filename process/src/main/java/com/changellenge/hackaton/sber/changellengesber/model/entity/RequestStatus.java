@@ -14,11 +14,16 @@ public class RequestStatus  extends BaseEntity{
 
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
+//    @ManyToOne
+//    @JoinColumn(name = "client_id")
+//    private Client client;
 
-    @Column(name = "score")
-    private Short score;
+
+    @Column(name = "status")
+    private String status;
+
+//    @ManyToOne
+//    @JoinColumn(name = "request_id")
+//    private Request request;
 
 }

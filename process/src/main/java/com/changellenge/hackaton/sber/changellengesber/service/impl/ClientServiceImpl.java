@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClientServiceImpl implements ClientService {
     private final ClientRepository clientRepository;
-    private Mapper mapper;
+    private ModelMapper mapper;
 
     @Autowired
-    public ClientServiceImpl(ClientRepository clientRepository, Mapper mapper) {
+    public ClientServiceImpl(ClientRepository clientRepository, ModelMapper mapper) {
         this.clientRepository = clientRepository;
         this.mapper = mapper;
     }

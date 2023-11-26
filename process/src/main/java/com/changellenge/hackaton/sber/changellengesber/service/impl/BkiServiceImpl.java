@@ -25,6 +25,6 @@ public class BkiServiceImpl  implements BkiService {
 
     @Override
     public BkiDto getBkiById(Long id) throws ChangeSetPersister.NotFoundException, AuthException {
-        return mapper.map(bkiRepository.findByUid(id).orElseThrow(), BkiDto.class);
+        return mapper.map(bkiRepository.findById(id).orElseThrow(), BkiDto.class);
     }
 }
