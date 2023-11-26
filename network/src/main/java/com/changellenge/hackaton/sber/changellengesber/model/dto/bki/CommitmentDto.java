@@ -6,11 +6,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Getter
-@Setter@NoArgsConstructor
 @AllArgsConstructor
 public class CommitmentDto {
     List<BkiDto> bki;

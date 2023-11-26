@@ -7,11 +7,8 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Getter
-@Setter
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class TitlePartDto {

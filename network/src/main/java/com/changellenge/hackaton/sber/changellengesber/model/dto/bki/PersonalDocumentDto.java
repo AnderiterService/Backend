@@ -6,11 +6,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Getter
-@Setter
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class PersonalDocumentDto {

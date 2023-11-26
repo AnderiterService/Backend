@@ -8,10 +8,8 @@ import lombok.NoArgsConstructor;
  * Шаблон Dto
  */
 @NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Getter
-@Setter
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class InfoAboutPaymentsDto {
