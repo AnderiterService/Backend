@@ -13,7 +13,7 @@ import java.util.Optional;
 @Repository
 public interface RequestRepository extends CrudRepository<Request, Long> {
     @Query(value = """
-            SELECT * FROM requests WHERE uid in (SELECT request_uid FROM client_requests WHERE client_id =:client_id) 
+            SELECT * FROM requests WHERE id in (SELECT request_uid FROM client_requests WHERE client_id =:client_id) 
             """, nativeQuery = true)
     List<Request> findByClientId(@Param("client_id") Long id);
 

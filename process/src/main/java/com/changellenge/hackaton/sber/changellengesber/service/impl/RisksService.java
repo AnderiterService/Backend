@@ -33,7 +33,9 @@ public class RisksService {
         risk += client.getChildren() ? 3 : 5;
         risk += client.getHasBankAccount() ? 1 : 5;
         risk += calcExperience(client.getWorkExperience());
+        if (client.getAdditionalIncome() != null)
         risk += calcIncome(client.getMonthlyIncome() + client.getAdditionalIncome());
+        else risk += calcIncome(client.getMonthlyIncome() );
 
 //todo add work amount for risk
         return risk;
