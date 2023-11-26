@@ -11,8 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 @Repository
-
-
 public interface RequestRepository extends CrudRepository<Request, Long> {
     @Query(value = """
             SELECT * FROM requests WHERE uid in (SELECT request_uid FROM client_requests WHERE client_id =:client_id) 

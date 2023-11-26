@@ -3,9 +3,11 @@ package com.changellenge.hackaton.sber.changellengesber.service.impl;
 import com.changellenge.hackaton.sber.changellengesber.model.entity.Bki;
 import com.changellenge.hackaton.sber.changellengesber.model.entity.Client;
 import com.changellenge.hackaton.sber.changellengesber.model.entity.LoanInformation;
+import com.changellenge.hackaton.sber.changellengesber.model.exceptions.NotFoundException;
 import com.changellenge.hackaton.sber.changellengesber.repo.BkiRepository;
 import com.changellenge.hackaton.sber.changellengesber.repo.ClientRepository;
 import com.changellenge.hackaton.sber.changellengesber.repo.LoanInformationRepository;
+import com.changellenge.hackaton.sber.changellengesber.utils.FindUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -25,19 +27,15 @@ public class PdnServiceImpl {
         this.loanInformationRepository = loanInformationRepository;
     }
 
-    public double calculatePdnByClientId(Long id) {
-        Client client = clientRepository.findById(id).orElseThrow();
+    public Double calculatePdnByClientId(Long id) throws NotFoundException {
+        Client client = FindUtils.findClient(clientRepository, id);
         Bki bki = bkiRepository.findByClient(client);
         List<LoanInformation> loanInformationList = loanInformationRepository.findByClient(client);
-//        double avgPays = loanInformationRepository.findAvgPays(client);
         double avgPays = loanInformationList.stream()
-                .filter(loan -> loan.getStatus().getStatus().equals("Текущий")) // Filtering for even IDs
-                .mapToDouble(LoanInformation::getMonthlyPay) // Assuming getMonthlyPay returns a double
+                .filter(loan -> loan.getStatus().getStatus().equals("Текущий"))
+                .mapToDouble(LoanInformation::getMonthlyPay)
                 .average()
                 .orElse(0.0);
-        System.out.println(avgPays);
-        System.out.println(bki);
-        System.out.println(loanInformationList);
         return avgPays / client.getMonthlyIncome() * 100.0;
     }
 }

@@ -1,9 +1,11 @@
 package com.changellenge.hackaton.sber.changellengesber.controllers;
 
 import com.changellenge.hackaton.sber.changellengesber.model.dto.RequestDto;
+import com.changellenge.hackaton.sber.changellengesber.model.exceptions.NotFoundException;
 import com.changellenge.hackaton.sber.changellengesber.service.ClientService;
 import com.changellenge.hackaton.sber.changellengesber.service.RequestService;
 import com.changellenge.hackaton.sber.changellengesber.service.impl.PdnServiceImpl;
+import com.changellenge.hackaton.sber.changellengesber.service.impl.RisksService;
 import jakarta.security.auth.message.AuthException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -16,11 +18,13 @@ import java.util.List;
 @RequestMapping("/processor")
 public class MainController {
     private final RequestService requestService;
+    private final RisksService risksService;
     private final ClientService clientService;
 private final PdnServiceImpl pdnService;
     @Autowired
-    public MainController(RequestService requestService, ClientService clientService, PdnServiceImpl pdnService) {
+    public MainController(RequestService requestService, RisksService risksService, ClientService clientService, PdnServiceImpl pdnService) {
         this.requestService = requestService;
+        this.risksService = risksService;
         this.clientService = clientService;
         this.pdnService = pdnService;
     }
@@ -43,8 +47,13 @@ private final PdnServiceImpl pdnService;
     }
 
     @GetMapping("/pdn/client_id={id}")
-    public Double calculatePdn(@PathVariable Long id) throws ChangeSetPersister.NotFoundException, AuthException {
+    public Double calculatePdn(@PathVariable Long id) throws ChangeSetPersister.NotFoundException, AuthException, NotFoundException {
         return pdnService.calculatePdnByClientId(id);
+    }
+
+  @GetMapping("/risks/client_id={id}")
+    public Integer calculateRisks(@PathVariable Long id) throws ChangeSetPersister.NotFoundException, AuthException, NotFoundException {
+        return risksService.calculateRisks(id);
     }
 
 }
