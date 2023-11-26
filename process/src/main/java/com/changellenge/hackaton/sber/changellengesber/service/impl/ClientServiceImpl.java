@@ -1,5 +1,6 @@
 package com.changellenge.hackaton.sber.changellengesber.service.impl;
 
+import com.changellenge.hackaton.sber.changellengesber.model.dto.ClientDto;
 import com.changellenge.hackaton.sber.changellengesber.model.dto.PersonalDocumentDto;
 import com.changellenge.hackaton.sber.changellengesber.model.entity.Client;
 import com.changellenge.hackaton.sber.changellengesber.model.entity.Request;
@@ -35,8 +36,8 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public PersonalDocumentDto getClientById(Long id) throws ChangeSetPersister.NotFoundException, AuthException, NotFoundException {
-        return mapper.map(FindUtils.findClient(clientRepository, id), PersonalDocumentDto.class);
+    public ClientDto getClientById(Long id) throws ChangeSetPersister.NotFoundException, AuthException, NotFoundException {
+        return mapper.map(FindUtils.findClient(clientRepository, id), ClientDto.class);
     }
 
     @Override

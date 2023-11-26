@@ -17,7 +17,7 @@ public class RequestDto {
 
     private Long startTimestamp;
 
-    private Timestamp slaId;
+    private String sla;
 
     private String status;
 
@@ -29,5 +29,4 @@ public class RequestDto {
 
     private String finalDecision;
 
-    // Other constructors, getters, setters, and methods as required
 }
