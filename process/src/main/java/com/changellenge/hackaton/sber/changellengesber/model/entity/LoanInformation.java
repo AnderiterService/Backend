@@ -5,7 +5,7 @@ import lombok.*;
 
 
 
-import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
 
@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "loan_information")
 public class LoanInformation  extends BaseEntity {
 
@@ -42,20 +43,23 @@ public class LoanInformation  extends BaseEntity {
     private Timestamp finalDate;
 
     @Column(name = "sum")
-    private BigDecimal sum;
+    private Double sum;
 
     @Column(name = "interest_rate")
-    private BigDecimal interestRate;
+    private Double interestRate;
 
     @Column(name = "balance_due")
-    private BigDecimal balanceDue;
+    private Double balanceDue;
 
     @ManyToOne
     @JoinColumn(name = "delay")
     private Delay delay;
 
     @Column(name = "overdue_amount")
-    private BigDecimal overdueAmount;
+    private Double overdueAmount;
+
+    @Column(name = "monthly_pay")
+    private Double monthlyPay;
 //
 //    @OneToOne(orphanRemoval = true)
 //    @JoinColumn(name = "client_id")

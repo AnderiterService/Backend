@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@ToString
 @Setter
 public class Bki extends BaseEntity{
 

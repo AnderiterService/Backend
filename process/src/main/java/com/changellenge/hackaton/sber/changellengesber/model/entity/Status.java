@@ -7,6 +7,8 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
+@ToString
+@Builder
 public class Status  extends BaseEntity{
 
 

@@ -9,6 +9,7 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
+@ToString
 public class TypeOfLoan  extends BaseEntity{
 
     @Column(name = "id")

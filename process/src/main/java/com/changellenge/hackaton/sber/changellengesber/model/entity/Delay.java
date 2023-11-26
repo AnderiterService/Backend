@@ -10,6 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Getter
+@ToString
 @Setter
 public class Delay  extends BaseEntity{
 

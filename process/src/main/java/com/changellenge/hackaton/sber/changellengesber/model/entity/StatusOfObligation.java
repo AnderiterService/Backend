@@ -9,6 +9,8 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
+@ToString
+
 public class StatusOfObligation  extends BaseEntity {
 
 

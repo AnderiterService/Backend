@@ -14,7 +14,7 @@ import lombok.*;
 public class Request  extends BaseEntity{
 
 
-            @Column(name = "uid")
+        @Column(name = "uid")
         private Long uid;
 
         @Column(name = "start_timestamp")

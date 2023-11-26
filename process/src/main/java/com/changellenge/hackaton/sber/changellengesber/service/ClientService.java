@@ -6,4 +6,6 @@ import org.springframework.data.crossstore.ChangeSetPersister;
 
 public interface ClientService {
     PersonalDocumentDto getClientById(Long id) throws ChangeSetPersister.NotFoundException, AuthException;
+
+    void sendToReload(Long id);
 }

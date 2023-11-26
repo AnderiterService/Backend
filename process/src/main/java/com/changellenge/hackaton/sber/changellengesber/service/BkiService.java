@@ -10,4 +10,6 @@ import org.springframework.stereotype.Service;
 
 public interface BkiService {
     BkiDto getBkiById(Long id) throws ChangeSetPersister.NotFoundException, AuthException;
+    void sendToReload(Long id) throws ChangeSetPersister.NotFoundException, AuthException;
+
 }
